@@ -1,0 +1,10 @@
+{
+  "name": "json",
+  "version": "1.22.22",
+  "description": "repository",
+  "main": "index.js",
+  "repository": "https://github.com/it-incubator/it-incubator-ed-back-sprint-1-lesson-1.git",
+  "author": "nadzeya",
+  "license": "-",
+  "private": null
+}

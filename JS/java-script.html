@@ -1,0 +1,141 @@
+<!-- primitywny typ danych to znakowyi inne, nieprymitywny to obiekty.
+ prymitywne to takie, które mają w sobie tylko 1 znaczenie.
+ dużo znaczeń to massiwy[](obiekty: funkcji, massiwy)-->
+<html>
+<head>
+</head>
+<body>
+          
+<script>
+          const num=5
+          const num2=num
+
+          const user={}   //url na obiekt
+          const array=[]
+          const obiekt = new Object() //globalny obiekt, funkcja.
+
+                    
+           const user2=user
+
+
+
+
+//mutabielność=izmieniajemość
+//создаем копию, вносим изменения, используем
+
+const user3={
+          name: 'Bob',
+          age: 32, //=> 33
+          isStudent: false,
+}
+const userCopy={
+          name: user.name,
+          age: user.age, //stary sposób
+          isStudent: user.isStudent,
+          age: 33
+}
+const userCopy2={
+          ...user,
+          age: 33
+}
+ //przełożenie danych z user
+//... - spred operator- расширить, распределить
+
+const numArray=[1,2,3,4,5]
+const arrayCopy=[0, ...numArray, 6]
+
+// Create
+// Read
+// Update
+// Delete
+const users = [
+  {
+    id: 1,
+    name: 'Bob',
+    isStudent: true,
+  },
+  {
+    id: 2,
+    name: 'Alex',
+    isStudent: true,
+  },
+  {
+    id: 3,
+    name: 'Ann',
+    isStudent: true,
+  },
+  {
+    id: 4,
+    name: 'Donald',
+    isStudent: true,
+  },
+]
+
+const newuser={
+          id: 5,
+          name: "Vlad"
+}
+// add user
+const copyUser = [...users, newuser]
+
+//delete user id = 2
+const checkfunction= u=>u.id !== 2
+const copyUsers2 = copyUser.filter(u => u.id !== 2)
+
+//update id=5 "Vlad" => "Elvin"
+const copyusername= copyUser.map(u => u.id == 5 ? {...u, name: "Elvin"} : u)
+
+
+const deepUserCopy=structuredClone(copyUser) //nie warte do używania, dla wiedzy
+
+
+
+const superUser = {
+  id: 10,
+  name: 'Clementina DuBuque',
+  username: 'Moriah.Stanton',
+  email: 'Rey.Padberg@karina.biz',
+  address: {
+    street: 'Kattie Turnpike',
+    suite: 'Suite 198',
+    city: 'Lebsackbury',
+    zipcode: '31428-2261',
+    geo: {
+      lat: '-38.2386',
+      lng: '57.2232',
+    },
+  },
+  phone: '024-648-3804',
+  website: 'ambrose.net',
+  company: {
+    name: 'Hoeger LLC',
+    catchPhrase: 'Centralized empowering task-force',
+    bs: 'target end-to-end models',
+  },
+}
+ 
+//update email => ewiir@jjj,com
+const updateEmail = {... superUser, email: "ewiir@jjj,com"}
+
+// update catchphrase => dfjdjjdfdjnlslkjusi
+const updatecatchphrase = {
+          ...superUser, 
+          company: {
+                    ...user.company, 
+                    catchphrase: "kjfjkdsnjkdsn"
+          }
+}
+//update lng => '50.000',
+const updateLng = {
+          ...superUser,
+          adress: {
+                    ...superUser.adress,
+                    geo: {
+                              ...superUser.adress.geo,
+                              lng: '50.0000'
+                    }
+          }
+}
+          </script>
+</body>
+</html>
